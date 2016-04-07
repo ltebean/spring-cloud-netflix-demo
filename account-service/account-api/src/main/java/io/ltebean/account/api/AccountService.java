@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "account-service")
+@FeignClient(value = "accountService")
 public interface AccountService {
 
     @RequestMapping(method = RequestMethod.GET, value = "/test")
