@@ -1,8 +1,3 @@
 spring:
   application:
     name: accountService
-  cloud:
-    config:
-      env: default
-      label: master
-      uri: http://localhost:8888
