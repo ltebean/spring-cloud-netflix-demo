@@ -2,13 +2,14 @@ package io.ltebean.account.server.service;
 
 import io.ltebean.account.api.AccountService;
 import io.ltebean.account.dto.User;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by ltebean on 16/4/1.
  */
 
-@RestController
+@Service
 public class AccountServiceImpl implements AccountService {
 
     @Override

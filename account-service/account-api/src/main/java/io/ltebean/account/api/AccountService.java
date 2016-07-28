@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(value = "accountService")
 public interface AccountService {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/test")
+    @RequestMapping(method = RequestMethod.GET, value = "/user")
     public User getTestUser();
 }

@@ -1,4 +1,4 @@
-package io.ltebean.client;
+package io.ltebean;
 
 import io.ltebean.account.api.AccountService;
 import io.ltebean.account.dto.User;
@@ -13,23 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @EnableAutoConfiguration
-@EnableEurekaClient
-@EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"io.ltebean.account.api"})
-@ComponentScan()
-@RestController
-public class ClientServerApplication {
-
-    @Autowired
-    AccountService accountService;
-
-    @RequestMapping("/user")
-    public User getUser() {
-        return accountService.getTestUser();
-    }
+@ComponentScan
+//@EnableEurekaClient
+//@EnableDiscoveryClient
+//@EnableFeignClients(basePackages = {"io.ltebean.account.api"})
+public class AccountWebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ClientServerApplication.class, args);
+        SpringApplication.run(AccountWebApplication.class, args);
     }
 
 }
