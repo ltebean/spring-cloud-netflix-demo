@@ -1,4 +1,4 @@
-package io.ltebean.account.web.controller.dto;
+package io.ltebean.account.web.dto;
 
 /**
  * Created by leo on 16/6/6.

@@ -2,28 +2,37 @@ package io.ltebean.account.web.controller;
 
 import io.ltebean.account.api.AccountService;
 import io.ltebean.account.dto.User;
-import io.ltebean.account.web.controller.dto.Response;
+import io.ltebean.account.web.annotation.LoginRequired;
+import io.ltebean.account.web.constant.AttributeConstant;
+import io.ltebean.account.web.dto.EmailSignupRequest;
+import io.ltebean.account.web.dto.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import io.ltebean.account.web.controller.base.BaseController;
 
 
 @RestController
-public class AccountController {
+public class AccountController extends BaseController {
 
     @Autowired
     AccountService accountService;
 
-    @RequestMapping("/api/v1/user")
-    public Response getUser() {
+    @RequestMapping("/v1/user/test")
+    public Response getTestUser() {
         User user = accountService.getTestUser();
         return new Response(user);
+    }
+
+    @RequestMapping("/v1/user")
+    @LoginRequired
+    public Response getUser(@ModelAttribute(AttributeConstant.USER)User user) {
+        return new Response(user);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/v1/user/email_signup")
+    public Response emailSignup(@RequestBody @Validated EmailSignupRequest request) {
+        return new Response("success");
     }
 
 }

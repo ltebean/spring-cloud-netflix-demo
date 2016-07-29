@@ -14,4 +14,5 @@ public interface AccountService {
 
     @RequestMapping(method = RequestMethod.GET, value = "/user")
     public User getTestUser();
+
 }
