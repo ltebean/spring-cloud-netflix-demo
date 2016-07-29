@@ -1,4 +1,4 @@
-package io.ltebean.account.server.service;
+package io.ltebean.account.service;
 
 import io.ltebean.account.api.AccountService;
 import io.ltebean.account.dto.User;
