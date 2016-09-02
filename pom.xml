@@ -10,8 +10,8 @@
     <modules>
         <module>eureka-server</module>
         <module>account-service</module>
-        <module>client-app</module>
-        <module>config-server</module>
+        <module>account-web</module>
+        <module>photo-service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -49,6 +49,20 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
         </dependency>
 
     </dependencies>

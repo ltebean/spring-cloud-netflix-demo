@@ -17,6 +17,13 @@
             <artifactId>account-biz</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>io.ltebean</groupId>
+            <artifactId>photo-biz</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
     </dependencies>
     <build>
         <plugins>

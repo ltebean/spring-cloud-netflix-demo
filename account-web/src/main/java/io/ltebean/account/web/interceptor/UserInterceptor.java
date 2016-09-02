@@ -1,7 +1,7 @@
 package io.ltebean.account.web.interceptor;
 
 import io.ltebean.account.api.AccountService;
-import io.ltebean.account.dto.User;
+import io.ltebean.account.dto.UserDTO;
 import io.ltebean.account.web.annotation.LoginRequired;
 import io.ltebean.account.web.constant.AttributeConstant;
 import io.ltebean.account.web.constant.HeaderConstant;
@@ -14,9 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.WebUtils;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,11 +38,11 @@ public class UserInterceptor implements HandlerInterceptor {
         // get user token from request header
         String token = request.getHeader(HeaderConstant.USER_TOKEN);
 
-        User user = null;
+        UserDTO user = null;
         if (token != null) {
             // find user by token, put the user in request attribute
-            user = new User();
-            request.setAttribute(AttributeConstant.USER, new User());
+            user = new UserDTO();
+            request.setAttribute(AttributeConstant.USER, new UserDTO());
         }
 
         // check whether the controller method is annotated with LoginRequired

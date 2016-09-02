@@ -1,6 +1,6 @@
 package io.ltebean.account.web.controller.base;
 
-import io.ltebean.account.dto.User;
+import io.ltebean.account.dto.UserDTO;
 import io.ltebean.account.web.constant.AttributeConstant;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class BaseController {
 
     @ModelAttribute(AttributeConstant.USER)
-    protected User getUser(HttpServletRequest request) {
-        return (User) request.getAttribute(AttributeConstant.USER);
+    protected UserDTO getUser(HttpServletRequest request) {
+        return (UserDTO) request.getAttribute(AttributeConstant.USER);
     }
 }

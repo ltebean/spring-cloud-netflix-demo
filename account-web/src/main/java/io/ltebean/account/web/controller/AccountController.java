@@ -1,7 +1,7 @@
 package io.ltebean.account.web.controller;
 
 import io.ltebean.account.api.AccountService;
-import io.ltebean.account.dto.User;
+import io.ltebean.account.dto.UserDTO;
 import io.ltebean.account.web.annotation.LoginRequired;
 import io.ltebean.account.web.constant.AttributeConstant;
 import io.ltebean.account.web.dto.EmailSignupRequest;
@@ -20,13 +20,13 @@ public class AccountController extends BaseController {
 
     @RequestMapping("/v1/user/test")
     public Response getTestUser() {
-        User user = accountService.getTestUser();
+        UserDTO user = accountService.getTestUser();
         return new Response(user);
     }
 
     @RequestMapping("/v1/user")
     @LoginRequired
-    public Response getUser(@ModelAttribute(AttributeConstant.USER)User user) {
+    public Response getUser(@ModelAttribute(AttributeConstant.USER)UserDTO user) {
         return new Response(user);
     }
 
