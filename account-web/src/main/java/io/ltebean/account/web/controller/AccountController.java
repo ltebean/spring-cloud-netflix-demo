@@ -1,5 +1,7 @@
 package io.ltebean.account.web.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import feign.Request;
 import io.ltebean.account.api.AccountService;
 import io.ltebean.account.dto.UserDTO;
 import io.ltebean.account.web.annotation.LoginRequired;
@@ -25,7 +27,6 @@ public class AccountController extends BaseController {
     }
 
     @RequestMapping("/v1/user")
-    @LoginRequired
     public Response getUser(@ModelAttribute(AttributeConstant.USER)UserDTO user) {
         return new Response(user);
     }

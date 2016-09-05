@@ -11,14 +11,14 @@
         <module>eureka-server</module>
         <module>account-service</module>
         <module>account-web</module>
-        <module>photo-service</module>
+        <module>hystrix-dashboard</module>
     </modules>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-parent</artifactId>
-        <version>Angel.SR3</version>
+        <version>Brixton.SR5</version>
     </parent>
     <dependencies>
         <dependency>
@@ -51,19 +51,7 @@
             <artifactId>spring-cloud-starter-feign</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jdbc</artifactId>
-        </dependency>
+
 
     </dependencies>
 

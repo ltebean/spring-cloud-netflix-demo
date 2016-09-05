@@ -1,0 +1,12 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
+
+turbine:
+  appConfig: ACCOUNT-WEB
+  clusterNameExpression: new String("default")
+
+server:
+  port: 9999
