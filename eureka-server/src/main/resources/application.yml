@@ -5,6 +5,9 @@ eureka:
   client:  # Not a client, don't register with yourself
     registerWithEureka: false
     fetchRegistry: false
+  server:
+    enableSelfPreservation: false
+    responseCacheUpdateIntervalMs: 1
 
 server:
   port: 8761

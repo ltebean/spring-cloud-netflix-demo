@@ -1,10 +1,8 @@
 package io.ltebean.account.web.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import feign.Request;
-import io.ltebean.account.api.AccountService;
+import io.ltebean.account.api.TestService;
+import io.ltebean.account.api.UserService;
 import io.ltebean.account.dto.UserDTO;
-import io.ltebean.account.web.annotation.LoginRequired;
 import io.ltebean.account.web.constant.AttributeConstant;
 import io.ltebean.account.web.dto.EmailSignupRequest;
 import io.ltebean.account.web.dto.Response;
@@ -18,11 +16,16 @@ import io.ltebean.account.web.controller.base.BaseController;
 public class AccountController extends BaseController {
 
     @Autowired
-    AccountService accountService;
+    UserService userService;
+
+    @Autowired
+    TestService testService;
+
 
     @RequestMapping("/v1/user/test")
     public Response getTestUser() {
-        UserDTO user = accountService.getTestUser();
+        UserDTO user = userService.getTestUser();
+        user.name = testService.getTestString();
         return new Response(user);
     }
 

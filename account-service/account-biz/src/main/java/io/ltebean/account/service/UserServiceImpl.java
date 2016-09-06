@@ -1,13 +1,11 @@
 package io.ltebean.account.service;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import io.ltebean.account.api.AccountService;
+import io.ltebean.account.api.UserService;
 import io.ltebean.account.dto.UserDTO;
 import io.ltebean.account.mapper.UserMapper;
 import io.ltebean.account.model.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class AccountServiceImpl implements AccountService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     UserMapper userMapper;

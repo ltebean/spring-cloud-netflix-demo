@@ -1,6 +1,6 @@
 package io.ltebean.account.web.interceptor;
 
-import io.ltebean.account.api.AccountService;
+import io.ltebean.account.api.UserService;
 import io.ltebean.account.dto.UserDTO;
 import io.ltebean.account.web.annotation.LoginRequired;
 import io.ltebean.account.web.constant.AttributeConstant;
@@ -27,7 +27,7 @@ public class UserInterceptor implements HandlerInterceptor {
 
 
     @Autowired
-    private AccountService accountService;
+    private UserService accountService;
 
     @Override
     public boolean preHandle(HttpServletRequest request,
