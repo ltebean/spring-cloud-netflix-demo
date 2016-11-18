@@ -21,6 +21,10 @@ public class AccountController extends BaseController {
     @Autowired
     TestService testService;
 
+    @RequestMapping("/v1/test")
+    public Response test() {
+        return new Response(testService.getTestString());
+    }
 
     @RequestMapping("/v1/user/test")
     public Response getTestUser() {

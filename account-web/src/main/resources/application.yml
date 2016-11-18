@@ -1,18 +1,10 @@
-eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 3
-    leaseExpirationDurationInSeconds: 9
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-    shouldFetchRegistry: true
-    registerWithEureka: true
-    registryFetchIntervalSeconds: 3
 
 server:
   port: 8080
 
 ribbon:
+  eureka:
+    enabled: false
   ActiveConnectionsLimit: 10
   ConnectTimeout: 3000
   ReadTimeout: 3000
@@ -20,3 +12,16 @@ ribbon:
   MaxAutoRetriesNextServer: 0
   MaxAutoRetries: 0
   ServerListRefreshInterval : 1000
+  listOfServers: localhost:9000
+
+hystrix:
+  command:
+    default:
+      fallback.enabled: false
+      circuitBreaker.enabled: false
+      metrics.rollingPercentile.enabled: false
+      execution.isolation.thread.interruptOnTimeout: true
+      execution.isolation.thread.timeoutInMilliseconds: 200
+  threadpool:
+    default:
+      coreSize: 20

@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestServiceImpl implements TestService {
     @Override
     public String getTestString() {
+        try {
+            Thread.sleep(0);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "test";
     }
 }

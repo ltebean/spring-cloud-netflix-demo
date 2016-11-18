@@ -11,8 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"io.ltebean"})
-@EnableEurekaClient
-@EnableDiscoveryClient
 @EnableFeignClients(basePackages = {"io.ltebean.account.api"})
 @EnableCircuitBreaker
 public class AccountWebApplication {

@@ -11,7 +11,6 @@ import org.springframework.context.annotation.ComponentScan;
  * Created by ltebean on 16/4/1.
  */
 @EnableAutoConfiguration
-@EnableDiscoveryClient
 @ComponentScan(basePackages = {"io.ltebean"})
 public class AccountServerApplication {
 
