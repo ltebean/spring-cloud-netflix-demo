@@ -1,13 +1,13 @@
 eureka:
-  instance:
-    leaseRenewalIntervalInSeconds: 3
-    leaseExpirationDurationInSeconds: 9
+#  instance:
+#    leaseRenewalIntervalInSeconds: 3
+#    leaseExpirationDurationInSeconds: 9
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
     shouldFetchRegistry: true
     registerWithEureka: true
-    registryFetchIntervalSeconds: 3
+#    registryFetchIntervalSeconds: 3
 
 server:
   port: 8080
