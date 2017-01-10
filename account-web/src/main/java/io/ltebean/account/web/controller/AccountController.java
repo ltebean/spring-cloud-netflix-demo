@@ -1,6 +1,5 @@
 package io.ltebean.account.web.controller;
 
-import io.ltebean.account.api.TestService;
 import io.ltebean.account.api.UserService;
 import io.ltebean.account.dto.UserDTO;
 import io.ltebean.account.web.constant.AttributeConstant;
@@ -18,19 +17,9 @@ public class AccountController extends BaseController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    TestService testService;
-
-
     @RequestMapping("/v1/user/test")
     public Response getTestUser() {
         UserDTO user = userService.getTestUser();
-        user.name = testService.getTestString();
-        return new Response(user);
-    }
-
-    @RequestMapping("/v1/user")
-    public Response getUser(@ModelAttribute(AttributeConstant.USER)UserDTO user) {
         return new Response(user);
     }
 

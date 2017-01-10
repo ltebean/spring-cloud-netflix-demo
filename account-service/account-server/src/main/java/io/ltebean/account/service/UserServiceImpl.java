@@ -29,7 +29,4 @@ public class UserServiceImpl implements UserService {
         return userDTO;
     }
 
-    public UserDTO emptyUser() {
-        return null;
-    }
 }

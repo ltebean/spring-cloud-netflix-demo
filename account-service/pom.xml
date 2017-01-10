@@ -15,7 +15,6 @@
     <modules>
         <module>account-api</module>
         <module>account-server</module>
-        <module>account-biz</module>
     </modules>
 
 </project>
