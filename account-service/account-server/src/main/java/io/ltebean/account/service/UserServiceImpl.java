@@ -8,6 +8,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 /**
  * Created by ltebean on 16/4/1.
  */
@@ -20,12 +23,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getTestUser() {
-        User user = userMapper.selectById(23);
-        if (user == null) {
-            return null;
-        }
         UserDTO userDTO = new UserDTO();
-        BeanUtils.copyProperties(user, userDTO);
+        userDTO.id = 200;
+        try {
+            InetAddress addr;
+            addr = InetAddress.getLocalHost();
+            userDTO.name = addr.getHostName();
+        }
+        catch (UnknownHostException ex) {
+            System.out.println("Hostname can not be resolved");
+        }
         return userDTO;
     }
 

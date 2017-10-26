@@ -1,22 +1,25 @@
-eureka:
+#eureka:
 #  instance:
 #    leaseRenewalIntervalInSeconds: 3
 #    leaseExpirationDurationInSeconds: 9
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-    shouldFetchRegistry: true
-    registerWithEureka: true
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#    shouldFetchRegistry: false
+#    registerWithEureka: true
 #    registryFetchIntervalSeconds: 3
 
 server:
   port: 8080
 
 ribbon:
+  eureka:
+    enabled: false
   ActiveConnectionsLimit: 10
   ConnectTimeout: 3000
   ReadTimeout: 3000
   OkToRetryOnAllOperations: true
   MaxAutoRetriesNextServer: 0
   MaxAutoRetries: 0
-  ServerListRefreshInterval : 1000
+  ServerListRefreshInterval: 1000
+  listOfServers: account-service:9000

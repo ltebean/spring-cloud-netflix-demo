@@ -2,6 +2,7 @@ package io.ltebean.account.web.controller.base;
 
 import io.ltebean.account.web.dto.Response;
 import io.ltebean.account.web.exception.UnauthorizedException;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -38,6 +39,6 @@ public class ControllerExceptionHandler {
     @ResponseBody
     public Response handleError(Exception exception) {
         logger.error("api error", exception);
-        return Response.error("server error");
+        return Response.error(ExceptionUtils.getFullStackTrace(exception));
     }
 }

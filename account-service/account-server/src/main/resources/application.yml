@@ -11,8 +11,11 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: org.apache.tomcat.jdbc.pool.DataSource
 
+
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
+
+
 
 server:
   port: 9000

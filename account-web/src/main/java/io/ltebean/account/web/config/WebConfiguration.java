@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.sql.DataSource;
+
 
 @Configuration
 public class WebConfiguration extends WebMvcConfigurerAdapter {
@@ -20,5 +22,6 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     public UserInterceptor userInterceptor() {
         return new UserInterceptor();
     }
+
 
 }

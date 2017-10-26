@@ -1,0 +1,57 @@
+version: "3"
+services:
+  account-service:
+    # replace username/repo:tag with your name and image details
+    image: account-service:v13
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+#    logging:
+#      driver: logentries
+#      options:
+#        logentries-token: 48170b5d-791b-421a-ba1e-35b094d51e53
+    healthcheck:
+      test: curl --fail http://localhost:9000/user || exit 1
+      interval: 20s
+      timeout: 10s
+      retries: 3
+#      resources:
+#        limits:
+#          cpus: "0.1"
+#          memory: 50M
+    ports:
+      - "9000:9000"
+    networks:
+      - webnet
+
+  account-web:
+      image: account-web:v2
+      deploy:
+        replicas: 1
+        restart_policy:
+          condition: on-failure
+      ports:
+        - "8080:8080"
+      networks:
+        - webnet
+
+  portainer:
+      image: portainer/portainer
+      ports:
+        - "9001:9000"
+      networks:
+        - webnet
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+      deploy:
+        mode: replicated
+        replicas: 1
+        placement:
+          constraints: [node.role == manager]
+
+networks:
+  webnet:
