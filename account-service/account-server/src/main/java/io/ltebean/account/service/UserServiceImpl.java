@@ -26,9 +26,7 @@ public class UserServiceImpl implements UserService {
         UserDTO userDTO = new UserDTO();
         userDTO.id = 200;
         try {
-            InetAddress addr;
-            addr = InetAddress.getLocalHost();
-            userDTO.name = addr.getHostName();
+            userDTO.name = InetAddress.getLocalHost().getHostName();
         }
         catch (UnknownHostException ex) {
             System.out.println("Hostname can not be resolved");
