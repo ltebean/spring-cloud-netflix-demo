@@ -29,11 +29,13 @@ services:
       - webnet
 
   account-web:
-      image: account-web:v2
+      image: account-web:v3
       deploy:
         replicas: 1
         restart_policy:
           condition: on-failure
+        placement:
+          constraints: [node.role == manager]
       ports:
         - "8080:8080"
       networks:

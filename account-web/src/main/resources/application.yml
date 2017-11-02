@@ -23,3 +23,13 @@ ribbon:
   MaxAutoRetries: 0
   ServerListRefreshInterval: 1000
   listOfServers: account-service:9000
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000

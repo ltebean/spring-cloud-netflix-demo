@@ -16,6 +16,10 @@ mybatis:
   mapper-locations: classpath*:mapper/*.xml
 
 
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
 
 server:
   port: 9000
