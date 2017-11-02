@@ -1,14 +1,82 @@
-The project includes:
+Docker commands:
 
-### eureka-server
-Eureka is a service registry, you can start a eureka server by running this project, and you can view the dashboard at http://localhost:8761
 
-### account-service
-This module acts as a micro service, in includes:
-* account-api: defines the api of this service
-* account-server: includes the implementation and you can run this service through `AccountServerApplication`, when it starts to run, it will register itself to eureka
+make image:
+```
+cd /account-server
+mvn package
+docker build -t account-service:v1 .
+```
 
-Once you run `account-server`, it will register itself to eureka.
+run an image:
+```
+docker run -p 9000:9000 account-service:v1
+```
 
-### account-web
-It consumes the account-service
+run in background:
+```
+docker run -p 9000:9000 -d account-service:v1
+```
+
+inspect containers:
+```
+docker ps
+```
+
+
+stop container:
+```
+docker container stop <container id>
+```
+
+init docker swarm:
+```
+docker swarm init
+```
+
+inspect docker swarm nodes:
+```
+docker node ls
+```
+
+run docker stack in swarm:
+```
+docker stack deploy -c docker_compose.yml <stack name>
+```
+
+inspect service:
+
+```
+docker service ls
+```
+
+scale service:
+```
+docker service scale account-service=<instance count>
+```
+
+stop stack:
+```
+docker stack rm <stack name>
+```
+
+create machine:
+```
+docker-machine create vm1
+```
+
+list machines:
+```
+docker-machine ls
+```
+
+run command in a machine:
+```
+docker-machine ssh vm1 "command"
+```
+
+copy image to a machine 
+```
+docker save account-service:v1 | (eval $(docker-machine env vm1) && docker load)
+```
+
