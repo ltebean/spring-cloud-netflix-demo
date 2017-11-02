@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO getTestUser() {
         UserDTO userDTO = new UserDTO();
-        userDTO.id = 200;
+        userDTO.id = 3000;
         try {
             userDTO.name = InetAddress.getLocalHost().getHostName();
         }

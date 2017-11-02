@@ -12,6 +12,12 @@
 server:
   port: 8080
 
+
+account-service:
+  ribbon:
+    listOfServers: account-service:9000
+
+
 ribbon:
   eureka:
     enabled: false
